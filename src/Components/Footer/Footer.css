@@ -1,11 +1,41 @@
 footer{
     background-image: url("../../Assets/images/footer_background.png");
-    background-position: center;
+    background-position: top;
     background-size: cover;
     height: 375px;
 
-    padding-top: 180px;
     padding-left: 32px;
     padding-right: 32px;
     margin-top: -128px;
+
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 32px;
+
+}
+.footer-column{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: rgba(254,254,254,0.08);
+    border-radius: 4px;
+    padding: 4px;
+}
+.footer-divider{
+    height: 2px;
+    width: 100%;
+    background-color: rgba(254,254,254,0.2);
+}
+.footer-link{
+    color: rgba(254,254,254,0.8);
+    text-decoration: none;
+    font-size: 19px;
+}
+.footer-link:hover{
+    color: var(--primary-color);
+}
+.footer-column-heading{
+    font-size: 24px;
+    font-weight: 6600;
+    color: rgba(254,254,254,0.8)
 }

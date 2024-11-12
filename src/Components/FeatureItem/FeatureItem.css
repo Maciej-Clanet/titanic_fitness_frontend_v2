@@ -10,11 +10,19 @@
     font-size: 18px;
     font-weight: 700;
     padding: 16px;
+    
+    background-image: url("../../Assets/images/wave_short.png");
+    /* background-size: cover; */
+    background-size: 100% 30%;
+    background-repeat: no-repeat;
+    background-position: 0px 100%;
 }
 @media only screen and (max-width: 800px){
     .feature-item{
         justify-content: flex-start;
         padding: 16px 32px;
         font-size: 24px;
+
+        
     }
 }
