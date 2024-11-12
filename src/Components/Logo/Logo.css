@@ -3,6 +3,9 @@
     gap: 8px;
     align-items: center;
     color: white;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
 }
 
 #logo > h1{

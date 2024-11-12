@@ -8,6 +8,7 @@ export default function DesktopHeader(){
             <Logo/>
             <NavLink text="Home" path="/"/>
             <NavLink text="Workouts" path="/Workouts"/>
+            <NavLink text="Join" path="/Join" primary/>
         </header>
     )
 }
