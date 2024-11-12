@@ -1,11 +1,20 @@
 .feature-item{
     background-color: var(--navy-blue);
     border-radius: 4px;
+
     display: flex;
-    color: white;
     align-items: center;
+    justify-content: center;
+
     gap: 16px;
     font-size: 18px;
     font-weight: 700;
     padding: 16px;
+}
+@media only screen and (max-width: 800px){
+    .feature-item{
+        justify-content: flex-start;
+        padding: 16px 32px;
+        font-size: 24px;
+    }
 }
