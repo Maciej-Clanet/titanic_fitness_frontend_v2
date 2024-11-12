@@ -1,0 +1,11 @@
+footer{
+    background-image: url("../../Assets/images/footer_background.png");
+    background-position: center;
+    background-size: cover;
+    height: 375px;
+
+    padding-top: 180px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: -128px;
+}
