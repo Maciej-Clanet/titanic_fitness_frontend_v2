@@ -1,0 +1,17 @@
+#logo{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: white;
+}
+
+#logo > h1{
+    font-weight: 600;
+}
+
+#logo-container{
+    width: 85px;
+}
+#logo-container > img{
+    width: 100%;
+}
