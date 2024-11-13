@@ -1,7 +1,7 @@
 .article-thumb-container{
     border: 1px solid rgba(244,244,244,0.15);
     background-color: rgba(0,0,0,0.1);
-    backdrop-filter: blur(2px);
+    /* backdrop-filter: blur(2px); */
     display: flex;
     
     flex-direction: column;
