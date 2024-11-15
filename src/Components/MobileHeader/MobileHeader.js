@@ -6,13 +6,30 @@ import { useState } from "react"
 export default function MobileHeader(){
     const [menuOpen, setMenuOpen] = useState(false);
 
+    function toggleOpen(){
+        setMenuOpen(!menuOpen);
+    }
+
+    var classString = "";
+    if (menuOpen){
+        classString = "menu-icon open"
+    } else{
+        classString = "menu-icon"
+    }
+
     return(
         <header id="mobile-header">
             <Logo />
             <img 
-                className={`menu-icon ${menuOpen ? "open" : ""}`} 
+                onClick={toggleOpen}
+                className={classString}
                 src={Icon} 
                 alt="menu-icon"/>
+            <nav id="mobile-nav" className={ menuOpen ? "open" : "" }>
+                <a href="/">HOME</a>
+                <a href="/workouts">WORKOUTS</a>
+                <a href="/join">JOIN</a>
+            </nav>
         </header>
     )
 }
