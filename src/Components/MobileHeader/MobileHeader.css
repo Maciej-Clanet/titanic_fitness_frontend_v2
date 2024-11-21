@@ -34,10 +34,21 @@
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    padding: 32px 0px;
 }
 #mobile-nav.open{
     display: flex;
 }
+#mobile-nav > a{
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: none;
+}
+#mobile-nav > a:hover{
+    color: var(--primary-color);
+}
+
 
 @media only screen and (max-width: 600px){
     #mobile-header{
