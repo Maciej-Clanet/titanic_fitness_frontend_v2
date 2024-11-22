@@ -7,4 +7,9 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    background-color: var(--navy-blue);
+    border-radius: 8px;
+}
+.feature-container.wide{
+    grid-column: span 2;
 }
