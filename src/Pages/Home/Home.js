@@ -27,6 +27,20 @@ export default function Home(){
                 </div>
             </section>
 
+
+            <section className="articles-section">
+                <h2>Gym is just the tip of the iceberg</h2>
+                <h3>Hit the books</h3>
+                <div className="articles-container">
+                    <div>test</div>
+                    <div>test</div>
+                    <div>test</div>
+                    <div>test</div>
+                    <div>test</div>
+                    <div>test</div>
+                </div>
+            </section>
+
         </>
     )
 }
