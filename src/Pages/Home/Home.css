@@ -43,14 +43,21 @@
     align-items: center;
     gap: 32px;
 
-    height: 1024px;
-
     background-image: url("../../Assets/images/iceberg.png");
-    background-size: cover;
     background-repeat: no-repeat;
 
+    background-size: cover;
     background-position: top;
-    background-position-y: -20vw;
+    height: 768px;
+
+    padding: 32px;
+    
+    > h2{
+        font-size: clamp(16px, 4vw, 32px);
+    }
+    > h3{
+        font-size: clamp(14px, 3vw, 26px);
+    }
 }
 
 .articles-container{
