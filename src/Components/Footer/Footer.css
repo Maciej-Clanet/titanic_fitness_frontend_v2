@@ -1,0 +1,37 @@
+#main-footer{
+    background-image: url("../../Assets/images/footer_background.png");
+    background-size: cover;
+    height: 375px;
+    margin-top: -150px;
+
+    padding: 32px;
+    display: flex;
+    align-items: flex-end;
+}
+.footer-links{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: max-content;
+
+    border-radius: 4px;
+    background-color: rgba(255,255,255,0.2);
+
+    > h3{
+        padding: 4px;
+    }
+    > a{
+        color: white;
+        text-decoration: none;
+        padding: 4px;
+        font-weight: 500;
+    }
+    > a:hover{
+        color: var(--primary-color);
+    }
+}
+.footer-divider{
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
