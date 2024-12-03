@@ -1,0 +1,14 @@
+.auth-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.auth-form-column{
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
