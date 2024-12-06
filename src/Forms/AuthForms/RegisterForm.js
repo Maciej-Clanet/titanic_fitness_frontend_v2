@@ -1,13 +1,36 @@
 import "./AuthForm.css"
-
+import { useState } from "react"
 
 export default function RegisterForm(){
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+
+    function onEmailChange(event){
+        setEmail(event.target.value);
+    }
 
     return(
     <form className="auth-form">
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Passowrd"/>
-        <input type="text" placeholder="Display Name"/>
+        current email entered is {email}
+        <input 
+            type="email" 
+            placeholder="Email" 
+            value={email} 
+            onChange={onEmailChange}
+            />
+        <input 
+            type="password" 
+            placeholder="Passowrd"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            />
+        <input 
+            type="text" 
+            placeholder="Display Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            />
 
         <div className="auth-options-row">
             <button type="submit" className="auth-confirm">Register</button>
