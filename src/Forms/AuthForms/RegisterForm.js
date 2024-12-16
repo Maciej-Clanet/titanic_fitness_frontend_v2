@@ -1,6 +1,8 @@
 import "./AuthForm.css"
 import { useState } from "react"
 import axios from "axios";
+import { useContext } from "react";
+import { UserContext } from "../../Contexts/UserContext";
 
 export default function RegisterForm({toggle}){
     const [email, setEmail] = useState("");
@@ -8,6 +10,7 @@ export default function RegisterForm({toggle}){
     const [name, setName] = useState("");
     const [error, setError] = useState("");
 
+    const {user, login, logout} = useContext(UserContext);
 
     function onEmailChange(event){
         setEmail(event.target.value);
@@ -26,8 +29,9 @@ export default function RegisterForm({toggle}){
         };
         axios.post(ENDPOINT_URL, FORM_DATA)
         .then(response => {
-            console.log(response)
-            alert("created user: " + JSON.stringify(response))
+            console.log(response.data)
+            login(response.data)
+            alert("created user: " + JSON.stringify(response.data))
         })
         .catch(error => {
             console.error(error)
@@ -36,7 +40,7 @@ export default function RegisterForm({toggle}){
     }
     return(
     <form className="auth-form" onSubmit={register}>
-        current email entered is {email}
+        current user is {JSON.stringify(user)}
         <input 
             type="email" 
             placeholder="Email" 
