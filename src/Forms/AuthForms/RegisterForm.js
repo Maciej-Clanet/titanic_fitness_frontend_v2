@@ -1,17 +1,41 @@
 import "./AuthForm.css"
 import { useState } from "react"
+import axios from "axios";
 
 export default function RegisterForm({toggle}){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+    const [error, setError] = useState("");
+
 
     function onEmailChange(event){
         setEmail(event.target.value);
     }
 
+
+    function register(event){
+        event.preventDefault();
+        setError("");
+
+        const ENDPOINT_URL = "http://localhost:8001/auth/register";
+        const FORM_DATA = {
+            "email": email,
+            "password": password,
+            "username": name
+        };
+        axios.post(ENDPOINT_URL, FORM_DATA)
+        .then(response => {
+            console.log(response)
+            alert("created user: " + JSON.stringify(response))
+        })
+        .catch(error => {
+            console.error(error)
+            setError(error?.response?.data?.detail || "An unknown error occurred")
+        })
+    }
     return(
-    <form className="auth-form">
+    <form className="auth-form" onSubmit={register}>
         current email entered is {email}
         <input 
             type="email" 
@@ -43,6 +67,7 @@ export default function RegisterForm({toggle}){
             </div>
 
         </div>
+        {error ? <p>{error}</p> : null}
     </form>
     )
 }
