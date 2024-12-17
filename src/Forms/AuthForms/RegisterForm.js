@@ -1,5 +1,6 @@
 import "./AuthForm.css"
 import { useState } from "react"
+import axios from "axios";
 
 export default function RegisterForm({toggle}){
     const [email, setEmail] = useState("");
@@ -21,25 +22,12 @@ export default function RegisterForm({toggle}){
             "username" : name
         }
 
-        fetch(ENDPOINT_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(FORM_DATA)
-        })
+        axios.post(ENDPOINT_URL, FORM_DATA)
         .then(response => {
-            if(response.ok == false){
-                throw new Error("An error has occured");
-            }
-
-            return response.json();
-        })
-        .then(userData => {
-            alert("Created user:" + JSON.stringify(userData));
+            alert("created user: " + JSON.stringify(response.data));
         })
         .catch(error => {
-            setError(error.message)
+            setError(error?.response?.data?.detail || "Error occured")
         })
 
 
