@@ -5,13 +5,48 @@ export default function RegisterForm({toggle}){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+    const [error, setError] = useState("");
 
     function onEmailChange(event){
         setEmail(event.target.value);
     }
 
+    function register(event){
+        event.preventDefault();
+        
+        const ENDPOINT_URL = "http://localhost:8001/auth/register";
+        const FORM_DATA = {
+            "email" : email,
+            "password" : password,
+            "username" : name
+        }
+
+        fetch(ENDPOINT_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(FORM_DATA)
+        })
+        .then(response => {
+            if(response.ok == false){
+                throw new Error("An error has occured");
+            }
+
+            return response.json();
+        })
+        .then(userData => {
+            alert("Created user:" + JSON.stringify(userData));
+        })
+        .catch(error => {
+            setError(error.message)
+        })
+
+
+    }
+
     return(
-    <form className="auth-form">
+    <form className="auth-form" onSubmit={register}>
         current email entered is {email}
         <input 
             type="email" 
@@ -41,8 +76,12 @@ export default function RegisterForm({toggle}){
                     Log In
                 </button>
             </div>
-
         </div>
+        {
+            error 
+                ? <div className="error">{error}</div>
+                : null
+         }
     </form>
     )
 }
