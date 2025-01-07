@@ -1,12 +1,17 @@
 import "./AuthForm.css"
 import { useState } from "react"
 import axios from "axios";
-
+ 
+import { useContext } from "react";
+import { UserContext } from "../../Contexts/UserContext";
+ 
 export default function RegisterForm({toggle}){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [error, setError] = useState("");
+
+    const { user, login, logout } = useContext(UserContext);
 
     function onEmailChange(event){
         setEmail(event.target.value);
@@ -24,7 +29,7 @@ export default function RegisterForm({toggle}){
 
         axios.post(ENDPOINT_URL, FORM_DATA)
         .then(response => {
-            alert("created user: " + JSON.stringify(response.data));
+            login(response.data);
         })
         .catch(error => {
             setError(error?.response?.data?.detail || "Error occured")
