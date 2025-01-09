@@ -1,10 +1,11 @@
-.feature-grid{
+.feature-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
     padding: 32px;
 }
-.feature-container{
+
+.feature-container {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -19,25 +20,27 @@
     background-repeat: no-repeat;
     background-position-y: 100%;
 
-    > span{
+    >span {
         font-size: 22px;
         font-weight: 600;
     }
 }
-.feature-container.wide{
+
+.feature-container.wide {
     grid-column: span 2;
     background-image: url("../../Assets/images/wave_medium.png");
 }
 
-@media only screen and (max-width: 800px){
-    .feature-grid{
-        display: flex;
-        flex-direction: column;
-    }
+
+#articles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 32px;
 }
 
 
-.articles-section{
+.articles-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,19 +54,44 @@
     height: 768px;
 
     padding: 32px;
-    
-    > h2{
+
+    >h2 {
         font-size: clamp(16px, 4vw, 32px);
-        border-bottom: 2px solid rgba(255,255,255,0.3);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
         padding-bottom: 16px;
         width: 100%;
         text-align: center;
     }
-    > h3{
+
+    >h3 {
         font-size: clamp(14px, 3vw, 26px);
     }
 }
 
-.articles-container{
 
+@media only screen and (max-width: 1000px) {
+    #articles-section {
+        padding: 32px 64px;
+    }
+
+    #articles-grid {
+        gap: 16px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #articles-section {
+        padding: 32px 8px;
+    }
+
+    #articles-grid {
+        gap: 8px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .feature-grid {
+        display: flex;
+        flex-direction: column;
+    }
 }
