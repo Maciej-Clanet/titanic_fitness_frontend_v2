@@ -1,0 +1,15 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* 100% of browser viewpoert height */
+}
+
+#page-content {
+    flex: 1;
+    /* This will make sure the page content container will always grow to fit 
+    the height of the app, which at minimum is 100% of the browser height
+    Since footer is below the page content, page content will effectively push
+    the footer down to the bottom.
+    */
+}
