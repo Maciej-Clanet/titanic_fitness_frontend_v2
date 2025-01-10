@@ -1,0 +1,70 @@
+.profile-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    margin: 0px 32px;
+    margin-top: 140px;
+
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    position: relative;
+    /*define the relative parent*/
+    /*Any position:absolute of the child elements
+    will use this containers as basis*/
+
+    padding: 4px;
+    padding-bottom: 0px;
+
+
+    .nav-dropdown-options {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 8px;
+        backdrop-filter: blur(16px);
+    }
+
+    .nav-dropdown-container:hover .nav-dropdown-options {
+        /* Show when hovering over container */
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav-dropdown-container:hover .dropdown-arrow {
+        transform: rotate(-180deg);
+        display: inline-block;
+        transition: transform 0.2s ease-in-out;
+    }
+}
+
+
+.profile-nav-btn {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+
+    border: none;
+    background: none;
+    padding-bottom: 4px;
+}
+
+.profile-nav-btn:hover {
+    color: var(--primary-color);
+}
+
+
+.profile-nav-btn.action {
+    margin-left: auto;
+}
+
+.profile-content {
+    margin: 32px;
+}

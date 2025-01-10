@@ -10,8 +10,21 @@ export default function Pages() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/join" element={<Auth />} />
-                <Route path="/profile" element={<Profile />} />
+                {/* Notice the star after the /profile/ */}
+                <Route path="/profile/*" element={<Profile />}>
+                    {/* divs are temporary*/}
+                    <Route path="past_workouts"
+                        element={<div>Past Workouts</div>}
+                    />
+                    <Route path="exercise_database"
+                        element={<div>Exercise Database</div>}
+                    />
+                    <Route path="new_workout"
+                        element={<div>New Workout</div>}
+                    />
+                </Route>
             </Routes>
         </main>
     )
 }
+
