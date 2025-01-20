@@ -40,7 +40,6 @@ export default function RegisterForm({ toggle }) {
 
     return (
         <form className="auth-form" onSubmit={register}>
-            current email entered is {email}
             <input
                 type="email"
                 placeholder="Email"

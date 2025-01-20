@@ -39,7 +39,6 @@ export default function LoginForm({ toggle }) {
 
     return (
         <form className="auth-form" onSubmit={loginUser}>
-            current email entered is {email}
             <input
                 type="email"
                 placeholder="Email"
