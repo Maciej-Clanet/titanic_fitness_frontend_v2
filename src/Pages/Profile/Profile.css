@@ -56,4 +56,10 @@
     margin-left: auto; 
 } 
 
+.profile-content{
+    margin: 32px;
+    display: flex;
+    flex-direction: column;
+    
+}
 
