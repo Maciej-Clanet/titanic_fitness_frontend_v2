@@ -24,6 +24,7 @@ export default function CategoryFilter({ selected, setFilter }) {
                     ...response.data.results
                 ]
             );
+            console.log(filters)
             setIsLoading(false);
         })
         .catch((error) => {
