@@ -11,11 +11,19 @@ export default function ExerciseDb(){
     const [error, setError] = useState("");
 
     const [exercises, setExercises] = useState([]);
- 
+
     function getExercises(){
         let api_endpoint = "https://wger.de/api/v2/exercisebaseinfo/?language=2&limit=900"
         if(filter > 0){
             api_endpoint += `&category=${filter}`
+        }
+
+        
+        const cached = localStorage.getItem(api_endpoint);
+        if (cached) {
+            setExercises(JSON.parse(cached));
+            setIsLoading(false);
+            return;
         }
 
         axios.get(api_endpoint)
@@ -29,6 +37,10 @@ export default function ExerciseDb(){
                         }
                     }
                 }
+
+                // remove the previous setExerciseCache
+                localStorage.setItem(api_endpoint, JSON.stringify(foundExercises));
+
                 setExercises(foundExercises)
                 setIsLoading(false)
                 console.log(foundExercises)
