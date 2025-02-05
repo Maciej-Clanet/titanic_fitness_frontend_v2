@@ -19,6 +19,13 @@ export default function ExerciseDb() {
             api_endpoint += `&category=${filter}`
         }
 
+        const cached = localStorage.getItem(api_endpoint);
+        if (cached) {
+            setExercises(JSON.parse(cached));
+            setIsLoading(false);
+            return;
+        }
+
         axios.get(api_endpoint)
             .then((response) => {
                 console.log(response.data.results);
@@ -32,6 +39,7 @@ export default function ExerciseDb() {
                     }
                 }
 
+                localStorage.setItem(api_endpoint, JSON.stringify(foundExercises));
                 setExercises(foundExercises);
                 setIsLoading(false);
                 console.log(foundExercises)
