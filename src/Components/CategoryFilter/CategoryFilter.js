@@ -47,6 +47,11 @@ export default function CategoryFilter({ selected, setFilter }) {
     }
 
 
+    function setCategory(event, id){
+        event.preventDefault()
+        setFilter(id)
+    }
+
     return (
         <div className="category-filter-container">
             <span>Filter:</span>
@@ -56,7 +61,7 @@ export default function CategoryFilter({ selected, setFilter }) {
                         return <button
                             key={category.id}
                             className={`filter-btn ${category.id == selected ? "active" : null}`}
-                            onClick={() => setFilter(category.id)}
+                            onClick={(e) => setCategory(e, category.id)}
                         >{category.name}</button>
                     })
                 }
